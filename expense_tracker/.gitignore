@@ -1,3 +1,5 @@
 #Entorno virtual
 venv
 
+#cache
+__pycache__
