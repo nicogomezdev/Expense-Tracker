@@ -1,5 +1,5 @@
 import sys
-from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,QVBoxLayout,QPushButton, QTableWidget,QTableWidgetItem)
+from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,QVBoxLayout,QPushButton, QTableWidget,QTableWidgetItem,QHeaderView)
 from ui.transaction_dialog import TransactionDialog
 from database.database import init_db, save_expense
 
@@ -29,6 +29,10 @@ class MainWindow(QMainWindow):
         self.table.setColumnCount(5)
         self.table.setHorizontalHeaderLabels(["Tipo","monto","Categoría","Fecha", "Descripción"])
         layout.addWidget(self.table)
+
+        #Ajustado al tamaño de la pantalla (Tabla)
+        header=self.table.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.Stretch)
 
     #añadir transacción
     def open_add_transaction(self):
